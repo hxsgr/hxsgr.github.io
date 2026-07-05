@@ -298,7 +298,7 @@ if __name__ == '__main__':
     append_text('当然，狗维不是什么好东西真实性也确实存疑，但结合此前对Jankie的多方指控，以及Zs在此后的几次冲突里熟练地靠情绪输出与几乎零证据掌控舆论一事来看…')
     append_text('细思极恐')
 
-    append_image('自保2.jpg')
+    append_image('自爆2.jpg')
 
 
     append_text('再想想HK中学生被挂成年度人物的事…')
@@ -314,3 +314,8 @@ if __name__ == '__main__':
     append_image('图文无关.jpg')
     append_text('笔者没有权力把自己的猜想写在文中')
     append_text('就此搁笔吧')
+
+
+    append_text('https://pan.baidu.com/s/1gKedy_RunAOJyiXDayqOmA?pwd=jn8e ')
+
+    append_image('难蚌记录.png')
