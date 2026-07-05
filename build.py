@@ -8,6 +8,7 @@ hxsgr.github.io — 编译展示脚本
 
 import json
 import os
+import re
 import sys
 import webbrowser
 
@@ -30,6 +31,14 @@ def escape_attr(s):
     return s.replace('&', '&amp;').replace('"', '&quot;')
 
 
+URL_RE = re.compile(r'(https?://[^\s<>"{}|\\^`\[\]()]+)')
+
+def auto_link_urls(text):
+    """将文本中的 URL 自动转为可点击链接"""
+    escaped = escape_html(text)
+    return URL_RE.sub(r'<a href="\1" target="_blank" rel="noopener">\1</a>', escaped)
+
+
 def render_block(block):
     t = block['type']
 
@@ -38,7 +47,7 @@ def render_block(block):
         return f'<h{lvl}>{escape_html(block["text"])}</h{lvl}>'
 
     elif t == 'paragraph':
-        return f'<p>{escape_html(block["text"])}</p>'
+        return f'<p>{auto_link_urls(block["text"])}</p>'
 
     elif t == 'image':
         img = f'<img src="{escape_attr(block["src"])}" alt="{escape_attr(block.get("caption") or "")}">'
